@@ -56098,7 +56098,7 @@ module.exports = {
   "maxPendingPayments": 200,
   "ethJsonRpcUrl": "https://eth-ropsten.alchemyapi.io/jsonrpc/nBKDB3Ft5jAa-VmtGnrKtVpQ8u8eIgQ",
   "ospEthAddress": "0x4bace345c30d9244b71218dc6ca694836138b60e",
-  "ospNetworkAddress": "http://a9d09a12bea0611e9be760a1d7f6afbb-4f5661cee3104e05.elb.us-west-2.amazonaws.com:29980"
+  "ospNetworkAddress": "https://celer-20190701-ropsten.celer.app/webproxy"
 };
 },{}],"ropsten_contracts.json":[function(require,module,exports) {
 module.exports = {
