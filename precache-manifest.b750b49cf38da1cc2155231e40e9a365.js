@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b18f9699e4d29b00acb8cabb8db6522a",
+    "revision": "b280e27340c0bc141f3209e4deb4357b",
     "url": "/celer-web-wallet/index.html"
   },
   {
-    "revision": "0a8e86ea3df32fac43b8",
+    "revision": "c9d520f2ec796053c9b8",
     "url": "/celer-web-wallet/static/css/main.b100e6da.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/celer-web-wallet/static/js/2.6849866e.chunk.js"
   },
   {
-    "revision": "0a8e86ea3df32fac43b8",
-    "url": "/celer-web-wallet/static/js/main.e803b6cc.chunk.js"
+    "revision": "c9d520f2ec796053c9b8",
+    "url": "/celer-web-wallet/static/js/main.85d07923.chunk.js"
   },
   {
     "revision": "7732f1f774639c704f29",
