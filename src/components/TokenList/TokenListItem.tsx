@@ -82,7 +82,7 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
   } else {
     if (balanceInfo.activated) {
       status = (
-        <SmallPrompt minWidth="100px">
+        <SmallPrompt textAlign="right" minWidth="250px">
           {balanceInfo.balance + ' wei'}
         </SmallPrompt>
       );
@@ -117,7 +117,7 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
         alt={tokenDisplayInfo.name}
         src={tokenDisplayInfo.iconUrl}
       />
-      <Flex minWidth="272px" flexDirection="column">
+      <Flex minWidth="100px" flexDirection="column">
         <Title fontWeight="normal">{tokenDisplayInfo.name}</Title>
         <SmallPrompt textAlign="left">{tokenDisplayInfo.symbol}</SmallPrompt>
       </Flex>
