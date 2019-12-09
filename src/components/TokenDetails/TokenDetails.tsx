@@ -18,9 +18,15 @@ interface TokenDetailsState {
 
 const StyledButton = styled(Button)`
   height: 28px;
-  width: 64px;
-  border-radius: 14px;
-  background-color: #1281ff;
+  width: 84px;
+  && {
+    color: #ffffff;
+    border-radius: 14px;
+    background-color: #1281ff;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
   text-transform: none;
 
   &:hover {

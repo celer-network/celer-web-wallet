@@ -9,8 +9,11 @@ import { CELER_FONT } from '../../utils/utils';
 
 const StyledButton = styled(Button)`
   font-family: ${CELER_FONT};
-  background-color: #000000;
-  border-radius: 12px;
+  && {
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 12px;
+  }
   height: 40px;
   min-height: 40px;
   width: 336px;
