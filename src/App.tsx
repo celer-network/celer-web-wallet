@@ -27,7 +27,7 @@ import './App.css';
 
 import { Celer } from 'celer-light-client';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { ClientContext } from './ClientContext';
 import ActivateCard from './components/ActivateCard';
@@ -43,7 +43,7 @@ const App: React.FC = () => {
 
   return (
     <ClientContext.Provider value={{ client, setClient }}>
-      <Router>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path="/connect">
             <ConnectCard />
@@ -71,7 +71,7 @@ const App: React.FC = () => {
             children={() => (client ? <TokenList /> : <ConnectCard />)}
           ></Route>
         </Switch>
-      </Router>
+      </BrowserRouter>
     </ClientContext.Provider>
   );
 };

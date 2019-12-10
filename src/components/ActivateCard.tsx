@@ -79,7 +79,7 @@ const ActivateCard: React.FC = () => {
       await promise;
       setStatus(TxStatus.SUCCEEDED);
     } catch (e) {
-      setError(e.toString());
+      setError(e.message || e.toString());
       setStatus(TxStatus.FAILED);
     }
   };

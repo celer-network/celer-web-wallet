@@ -53,6 +53,7 @@ const ActivateButton = styled(Button)`
   border-radius: 14px;
   background-color: #1281ff;
   text-transform: none;
+  margin-left: 180px;
 
   &:hover {
     background-color: #90caf9;
@@ -103,7 +104,7 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
 
   let status: ReactElement;
   if (isLoading) {
-    status = <SmallPrompt>Loading</SmallPrompt>;
+    status = <SmallPrompt marginLeft="180px">Loading</SmallPrompt>;
   } else {
     if (balanceInfo.activated) {
       status = (
