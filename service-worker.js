@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/celer-web-wallet/precache-manifest.7507399e8b836ce543703f2e47b6ad8f.js"
+  "/celer-web-wallet/precache-manifest.fa48340d28008dbc9ec4a5c206d16592.js"
 );
 
 self.addEventListener('message', (event) => {
