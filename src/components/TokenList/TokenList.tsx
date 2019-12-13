@@ -40,6 +40,8 @@ export interface TokenDisplayInfo {
   address: string;
   symbol: string;
   iconUrl: string;
+  minDeposit: string;
+  maxDeposit: string;
 }
 
 const TokenList: React.FC = () => {
@@ -58,7 +60,9 @@ const TokenList: React.FC = () => {
       type: token.type,
       address: token.address,
       symbol: token.symbol,
-      iconUrl: token.iconUrl
+      iconUrl: token.iconUrl,
+      minDeposit: token.depositLimits.minDeposit,
+      maxDeposit: token.depositLimits.maxDeposit
     });
   }
 

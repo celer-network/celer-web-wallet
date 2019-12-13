@@ -53,7 +53,7 @@ const ActivateButton = styled(Button)`
   border-radius: 14px;
   background-color: #1281ff;
   text-transform: none;
-  margin-left: 180px;
+  margin-left: calc(66%);
 
   &:hover {
     background-color: #90caf9;
@@ -98,13 +98,15 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
   const activate = async () => {
     history.replace('/activate', {
       tokenType: tokenDisplayInfo.type,
-      tokenAddress: tokenDisplayInfo.address
+      tokenAddress: tokenDisplayInfo.address,
+      minDeposit: tokenDisplayInfo.minDeposit,
+      maxDeposit: tokenDisplayInfo.maxDeposit
     });
   };
 
   let status: ReactElement;
   if (isLoading) {
-    status = <SmallPrompt marginLeft="180px">Loading</SmallPrompt>;
+    status = <SmallPrompt marginLeft="calc(66%)">Loading</SmallPrompt>;
   } else {
     if (balanceInfo.activated) {
       status = (

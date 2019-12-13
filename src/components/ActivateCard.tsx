@@ -24,6 +24,7 @@
  */
 
 import { TokenType } from 'celer-light-client';
+import { ethers } from 'ethers';
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -44,6 +45,8 @@ import Title from './common/Title';
 interface ActivateCardState {
   tokenType: string;
   tokenAddress: string;
+  minDeposit: string;
+  maxDeposit: string;
 }
 
 const ActivateCard: React.FC = () => {
@@ -53,8 +56,10 @@ const ActivateCard: React.FC = () => {
   const locationState = history.location.state;
   const tokenType = locationState && locationState.tokenType;
   const tokenAddress = locationState && locationState.tokenAddress;
+  const minDeposit = locationState && locationState.minDeposit;
+  const maxDeposit = locationState && locationState.maxDeposit;
 
-  const [amount, setAmount] = useState<string>('');
+  const [amountEth, setAmountEth] = useState<string>('');
   const [status, setStatus] = useState<TxStatus>(TxStatus.IDLE);
   const [error, setError] = useState<string>('');
 
@@ -68,11 +73,12 @@ const ActivateCard: React.FC = () => {
   };
 
   const activate = async () => {
+    const amountWei = ethers.utils.parseEther(amountEth).toString();
     const promise = client.openPaymentChannel(
       tokenType === 'ETH' ? TokenType.ETH : TokenType.ERC20,
       tokenAddress,
-      amount,
-      amount
+      amountWei,
+      amountWei
     );
     setStatus(TxStatus.PROCESSING);
     try {
@@ -84,6 +90,9 @@ const ActivateCard: React.FC = () => {
     }
   };
 
+  const minDepositEth = ethers.utils.formatEther(minDeposit);
+  const maxDepositEth = ethers.utils.formatEther(maxDeposit);
+
   const card = (
     <CenteredFlexWithMarginTop>
       <BoxWithMarginTop>
@@ -92,14 +101,20 @@ const ActivateCard: React.FC = () => {
         <OutlinedInput
           style={{ marginTop: '1em', width: '100%' }}
           labelWidth={0}
-          onChange={event => setAmount(event.target.value)}
-          endAdornment={<InputAdornment position="end">wei</InputAdornment>}
+          onChange={event => setAmountEth(event.target.value)}
+          endAdornment={<InputAdornment position="end">ETH</InputAdornment>}
           inputProps={{
             'aria-label': 'amount'
           }}
         />
         <SmallPrompt textAlign="left">
           Deposit to activate Celer Pay
+        </SmallPrompt>
+        <SmallPrompt textAlign="left">
+          Minimum deposit: {minDepositEth} ETH
+        </SmallPrompt>
+        <SmallPrompt textAlign="left">
+          Maximum deposit: {maxDepositEth} ETH
         </SmallPrompt>
       </BoxWithMarginTop>
       <CelerButton style={{ marginTop: '2em' }} onClick={activate}>
