@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/celer-web-wallet/static/css/main.b100e6da.chunk.css",
-    "main.js": "/celer-web-wallet/static/js/main.38338e33.chunk.js",
-    "main.js.map": "/celer-web-wallet/static/js/main.38338e33.chunk.js.map",
+    "main.js": "/celer-web-wallet/static/js/main.e90617c7.chunk.js",
+    "main.js.map": "/celer-web-wallet/static/js/main.e90617c7.chunk.js.map",
     "runtime-main.js": "/celer-web-wallet/static/js/runtime-main.dc25d1f0.js",
     "runtime-main.js.map": "/celer-web-wallet/static/js/runtime-main.dc25d1f0.js.map",
     "static/js/2.e3b6d402.chunk.js": "/celer-web-wallet/static/js/2.e3b6d402.chunk.js",
     "static/js/2.e3b6d402.chunk.js.map": "/celer-web-wallet/static/js/2.e3b6d402.chunk.js.map",
     "index.html": "/celer-web-wallet/index.html",
-    "precache-manifest.8d1e0e5712eab7879c238025fdcb021f.js": "/celer-web-wallet/precache-manifest.8d1e0e5712eab7879c238025fdcb021f.js",
+    "precache-manifest.83a36647f9f52035a3f9a004254fe2c4.js": "/celer-web-wallet/precache-manifest.83a36647f9f52035a3f9a004254fe2c4.js",
     "service-worker.js": "/celer-web-wallet/service-worker.js",
     "static/css/main.b100e6da.chunk.css.map": "/celer-web-wallet/static/css/main.b100e6da.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.dc25d1f0.js",
     "static/js/2.e3b6d402.chunk.js",
     "static/css/main.b100e6da.chunk.css",
-    "static/js/main.38338e33.chunk.js"
+    "static/js/main.e90617c7.chunk.js"
   ]
 }
