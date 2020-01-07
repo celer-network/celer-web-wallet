@@ -24,6 +24,7 @@
  */
 
 import { TokenType } from 'celer-light-client';
+import { ethers } from 'ethers';
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -44,7 +45,7 @@ const SendCard: React.FC = () => {
   const tokenAddress = history.location.state.tokenAddress;
 
   const [destination, setDestination] = useState<string>('');
-  const [amount, setAmount] = useState<string>('');
+  const [amountEth, setAmountEth] = useState<string>('');
 
   if (!client || !tokenType || !tokenAddress) {
     history.replace('/');
@@ -56,11 +57,12 @@ const SendCard: React.FC = () => {
   };
 
   const send = async () => {
+    const amountWei = ethers.utils.parseEther(amountEth).toString();
     await client.sendPayment(
       tokenType === 'ETH' ? TokenType.ETH : TokenType.ERC20,
       tokenAddress,
       destination,
-      amount
+      amountWei
     );
     history.replace('/tokens');
   };
@@ -82,8 +84,8 @@ const SendCard: React.FC = () => {
         <OutlinedInput
           style={{ marginTop: '1em', width: '100%' }}
           labelWidth={0}
-          onChange={event => setAmount(event.target.value)}
-          endAdornment={<InputAdornment position="end">wei</InputAdornment>}
+          onChange={event => setAmountEth(event.target.value)}
+          endAdornment={<InputAdornment position="end">ETH</InputAdornment>}
           inputProps={{
             'aria-label': 'amount'
           }}
