@@ -115,9 +115,12 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
     );
   } else {
     if (balanceInfo.activated) {
+      const formatted = String(
+        Number(ethers.utils.formatEther(balanceInfo.balance)).toFixed(4)
+      );
       status = (
         <SmallPrompt textAlign="right" position="absolute" right="0px">
-          {ethers.utils.formatEther(balanceInfo.balance) + ' ETH'}
+          {formatted + ' ETH'}
         </SmallPrompt>
       );
     } else {
