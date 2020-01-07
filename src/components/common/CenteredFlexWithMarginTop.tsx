@@ -38,6 +38,7 @@ const CenteredFlexWithMarginTop: React.FC<React.CSSProperties> = props => (
     flexDirection="column"
     alignItems={props.alignItems ? props.alignItems : 'center'}
     width="25%"
+    minWidth="250px"
     {...props}
   ></Flex>
 );

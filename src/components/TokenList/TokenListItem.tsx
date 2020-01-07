@@ -53,7 +53,8 @@ const ActivateButton = styled(Button)`
   border-radius: 14px;
   background-color: #1281ff;
   text-transform: none;
-  margin-left: calc(66%);
+  position: absolute;
+  right: 0px;
 
   &:hover {
     background-color: #90caf9;
@@ -106,11 +107,15 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
 
   let status: ReactElement;
   if (isLoading) {
-    status = <SmallPrompt marginLeft="calc(66%)">Loading</SmallPrompt>;
+    status = (
+      <SmallPrompt position="absolute" right="0px">
+        Loading
+      </SmallPrompt>
+    );
   } else {
     if (balanceInfo.activated) {
       status = (
-        <SmallPrompt textAlign="right" minWidth="250px">
+        <SmallPrompt textAlign="right" position="absolute" right="0px">
           {balanceInfo.balance + ' wei'}
         </SmallPrompt>
       );
@@ -145,7 +150,7 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
         alt={tokenDisplayInfo.name}
         src={tokenDisplayInfo.iconUrl}
       />
-      <Flex minWidth="100px" flexDirection="column">
+      <Flex flexDirection="column">
         <Title fontWeight="normal">{tokenDisplayInfo.name}</Title>
         <SmallPrompt textAlign="left">{tokenDisplayInfo.symbol}</SmallPrompt>
       </Flex>
