@@ -23,6 +23,7 @@
  * IN THE SOFTWARE.
  */
 
+import { ethers } from 'ethers';
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -46,7 +47,7 @@ const WithdrawCard: React.FC = () => {
   const locationState = history.location.state;
   const channelId = locationState && locationState.channelId;
 
-  const [amount, setAmount] = useState<string>('');
+  const [amountEth, setAmountEth] = useState<string>('');
   const [status, setStatus] = useState<TxStatus>(TxStatus.IDLE);
   const [error, setError] = useState<string>('');
 
@@ -60,7 +61,8 @@ const WithdrawCard: React.FC = () => {
   };
 
   const withdraw = async () => {
-    const promise = client.cooperativeWithdraw(channelId, amount);
+    const amountWei = ethers.utils.parseEther(amountEth).toString();
+    const promise = client.cooperativeWithdraw(channelId, amountWei);
     setStatus(TxStatus.PROCESSING);
     try {
       await promise;
@@ -79,8 +81,8 @@ const WithdrawCard: React.FC = () => {
         <OutlinedInput
           style={{ marginTop: '1em', width: '100%' }}
           labelWidth={0}
-          onChange={event => setAmount(event.target.value)}
-          endAdornment={<InputAdornment position="end">wei</InputAdornment>}
+          onChange={event => setAmountEth(event.target.value)}
+          endAdornment={<InputAdornment position="end">ETH</InputAdornment>}
           inputProps={{
             'aria-label': 'amount'
           }}

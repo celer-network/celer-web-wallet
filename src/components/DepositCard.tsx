@@ -24,6 +24,7 @@
  */
 
 import { TokenType } from 'celer-light-client';
+import { ethers } from 'ethers';
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -49,7 +50,7 @@ const DepositCard: React.FC = () => {
   const tokenType = locationState && locationState.tokenType;
   const tokenAddress = locationState && locationState.tokenAddress;
 
-  const [amount, setAmount] = useState<string>('');
+  const [amountEth, setAmountEth] = useState<string>('');
   const [status, setStatus] = useState<TxStatus>(TxStatus.IDLE);
   const [error, setError] = useState<string>('');
 
@@ -63,10 +64,11 @@ const DepositCard: React.FC = () => {
   };
 
   const deposit = async () => {
+    const amountWei = ethers.utils.parseEther(amountEth).toString();
     const promise = client.deposit(
       channelId,
       tokenType === 'ETH' ? TokenType.ETH : TokenType.ERC20,
-      amount
+      amountWei
     );
     setStatus(TxStatus.PROCESSING);
     try {
@@ -86,8 +88,8 @@ const DepositCard: React.FC = () => {
         <OutlinedInput
           style={{ marginTop: '1em', width: '100%' }}
           labelWidth={0}
-          onChange={event => setAmount(event.target.value)}
-          endAdornment={<InputAdornment position="end">wei</InputAdornment>}
+          onChange={event => setAmountEth(event.target.value)}
+          endAdornment={<InputAdornment position="end">ETH</InputAdornment>}
           inputProps={{
             'aria-label': 'amount'
           }}

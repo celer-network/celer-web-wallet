@@ -24,6 +24,7 @@
  */
 
 import { Celer } from 'celer-light-client';
+import { ethers } from 'ethers';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Flex, Text } from 'rimble-ui';
@@ -116,7 +117,7 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
     if (balanceInfo.activated) {
       status = (
         <SmallPrompt textAlign="right" position="absolute" right="0px">
-          {balanceInfo.balance + ' wei'}
+          {ethers.utils.formatEther(balanceInfo.balance) + ' ETH'}
         </SmallPrompt>
       );
     } else {
